@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mensagens Recebidas</title>
+  <script src="js/jquery-3.6.4.min.js"></script>
+  <script src="js/api.js"></script>
+</head>
+<body>
+  <h1>Mensagens Recebidas</h1>
+  <table id="tabela-mensagens" border="1">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Mensagem</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+  </table>
+
+  <script>
+    $(document).ready(function () {
+      const mensagens = obterMensagens();
+      const tbody = $('#tabela-mensagens tbody');
+      mensagens.forEach(msg => {
+        const row = `
+          <tr>
+            <td>${msg.nome}</td>
+            <td>${msg.email}</td>
+            <td>${msg.mensagem}</td>
+          </tr>
+        `;
+        tbody.append(row);
+      });
+    });
+  </script>
+</body>
+</html>
